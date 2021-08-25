@@ -27,6 +27,7 @@
     padding: 10px;
     box-shadow: 5px 5px 5px rgb(0,0,0,0);
     transition: .3s;
+    z-index: 0;
 }
 
 .voteSection:hover{
@@ -43,4 +44,12 @@
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+}
+
+#wipDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }

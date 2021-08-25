@@ -11,10 +11,33 @@
         <!--<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>-->
         <link rel="stylesheet" href="style/vote.css">
-        <script defer src="js/storage.js"></script>
+        <link rel="stylesheet" href="style/sidebar.css">    
+        <script defer src="script/storage.js"></script>
         <script defer src="script/vote.js"></script>
+        <script defer src="script/sidebar.js"></script>
+        <script defer src="script/logout.js"></script>        
     </head>
     <body>
+        <div class="wrapper d-flex align-items-stretch">
+            <nav id="sidebar">
+                <div class="custom-menu">
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                    </button>
+                </div>
+                <div class="p-4 pt-5">
+                    <h1><a href="#" class="logo">OES</a></h1>
+                    <ul class="list-unstyled components mb-5">
+                    <li>
+                        <a href="#" id="aboutUs">About</a>
+                    </li>
+                    <li>
+                        <a href="#" id="logout">Sign Out</a>
+                    </li>
+                    </ul>
+                </div>
+                </nav>
         <center>
             <div class="row col-md-12">
                 <h1>Vote for Melaka State</h1> 
@@ -32,7 +55,7 @@
                                 <tbody>
                                     <tr><td>Name</td><td>:</td><td><span id="nameA"></span></td></tr>
                                     <tr><td>State</td><td>:</td><td><span id="stateA"></span></td></tr>
-                                    <tr><td>Party</td><td>:</td><td><span id="partyA"></span></td></tr>
+                                    <tr><td>Party</td><td>:</td><td><span id="partyA">Pakatan Nasional</span></td></tr>
                                     <tr><td>Total Vote(s)</td><td>:</td><td><span id="votesA"></span></td></tr>
                                 </tbody>
                             </table>
@@ -56,7 +79,7 @@
                                 <tbody>
                                     <tr><td>Name</td><td>:</td><td><span id="nameB"></span></td></tr>
                                     <tr><td>State</td><td>:</td><td><span id="stateB"></span></td></tr>
-                                    <tr><td>Party</td><td>:</td><td><span id="partyB"></span></td></tr>
+                                    <tr><td>Party</td><td>:</td><td><span id="partyB">Barisan Harapan</span></td></tr>
                                     <tr><td>Total Vote(s)</td><td>:</td><td><span id="votesB"></span></td></tr>
                                 </tbody>
                             </table>
@@ -68,5 +91,6 @@
                 </div>
             </div>
         </center>
+        </div>
     </body>
 </html>

@@ -11,8 +11,9 @@ body
         margin: auto;  
         margin: 20 0 0 450px;  
         padding: 80px;  
-        background: #23463f;  
-        border-radius: 15px ;  
+        background: #23463f; 
+        border-radius: 15px ;
+        transition: .3s;  
           
 }  
 h2{  
@@ -57,3 +58,7 @@ a{
     float: right;  
     background-color: grey;  
 }  
+
+#registerLink{
+    background: none;
+}
