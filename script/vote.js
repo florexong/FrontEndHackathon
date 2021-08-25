@@ -35,9 +35,9 @@ $(".voteBtn").click(function (e){
 });
 
 //Get Menteri Details from Firebase
-function getDetails(){
+function getDetails() {
     //Preprocess URL
-    var pathname = $(location).attr('pathname').slice(6,12)
+    var pathname = $(location).attr('pathname').slice(6,12);
     pathname = pathname.charAt(0).toUpperCase() + pathname.slice(1);
     console.log(pathname);
     
