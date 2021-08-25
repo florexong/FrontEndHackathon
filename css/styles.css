@@ -27,7 +27,7 @@ form button {
     padding: 1rem;
     margin-top: 1rem;
     color: #6b62ef;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border: none;
     border-radius: 1.5rem;
     cursor: pointer;
@@ -36,4 +36,12 @@ form button {
 
 h1 {
     font-size: 2rem;
+}
+
+label {
+    
+}
+
+h1#register-title {
+    
 }
