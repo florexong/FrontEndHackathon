@@ -7,7 +7,7 @@ class Storage {
         }
 
         this.getItem = function(key) {
-            return localStorage.getItem(this.decrypt(key));
+            return localStorage.getItem(this.encrypt(key));
         }
 
         this.encrypt = function(value) {

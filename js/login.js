@@ -19,14 +19,17 @@ loginButton.addEventListener("click", login);
 //         })
 // }
 
-function saveUser(idNum) {
+function saveUser(user) {
     let storage = new Storage();
-    storage.saveItem(storage.getKey, idNum);
-    console.log("success");
+    storage.saveItem(storage.getKey(), user);
+    let encryptedValue = storage.getItem(storage.getKey());
+    let decryptedValue = storage.decrypt(encryptedValue);
+    console.log(encryptedValue);
+    console.log(decryptedValue);
 }
 
 async function getIdNum() {
-    let idNumber = document.getElementById('icnumber').value;
+    let idNumber = document.getElementById('icnumber').value.toString();
     let password = document.getElementById('password').value;
 
     return (await fetch('https://mstw-hackathon-api.herokuapp.com/user/' + idNumber + "/" + password)).json();
@@ -34,15 +37,15 @@ async function getIdNum() {
 
 async function login(e) {
     e.preventDefault();
-    let login;
+    let user;
     try {
         await getIdNum(e).then(res => {
-            login = res;
-            console.log(login);
-            if(login['correctUser'] == true) {
-                saveUser(JSON.stringify(login));
-                var stateCode = idNumber.slice(6,8);
-                console.log(stateCode);
+            user = res;
+            console.log(user);
+            if(user['correctUser']) {
+                saveUser(JSON.stringify(user));
+                
+                window.location.href = window.location.protocol+"//"+window.location.hostname+":"+window.location.port+"/vote_melaka.html";
             } else {
                 //show incorrect ic number or password dialog box
                 //990826075339
@@ -53,8 +56,6 @@ async function login(e) {
         console.log("Error!");
         console.log(e);
     }
-
-    console.log(login);
 }
 
 
