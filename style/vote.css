@@ -1,0 +1,46 @@
+.section{
+    position: relative;
+    width: 100vw;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin-top: 1em;
+}
+
+.wrapper {
+    height: 100%;
+    line-height: 1.5;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    position: relative;
+    width: 90vw;
+    margin: 0;
+    padding: 0;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.voteSection{
+    background: #bff0e6;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px rgb(0,0,0,0);
+    transition: .3s;
+}
+
+.voteSection:hover{
+    box-shadow: 5px 5px 5px rgb(0,0,0,.2);
+}
+
+.voteDetails{
+    text-align: left;
+}
+
+.voteBtn{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
