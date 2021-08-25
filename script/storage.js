@@ -3,19 +3,15 @@ class Storage {
         this.key = "mstw-hackathon";
 
         this.saveItem = function(key, value) {
-            localStorage.setItem(this.encrypt(key), this.encrypt(value));
+            localStorage.setItem(key, value);
         }
 
         this.getItem = function(key) {
-            return localStorage.getItem(this.encrypt(key));
+            return localStorage.getItem(key);
         }
 
         this.encrypt = function(value) {
-            return btoa(escape(value));
-        }
-
-        this.decrypt = function(value) {
-            return unescape(atob(value));
+            return CryptoJS.MD5("tetsstg");
         }
 
         this.getKey = function() {
