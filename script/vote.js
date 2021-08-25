@@ -12,7 +12,7 @@ $(".voteBtn").click(function (e){
         showCancelButton: true
     }).then(result => {
         if (result.isConfirmed){
-            //add vote to db
+            //Add TotalVotes to database
             fetch('https://mstw-hackathon-api.herokuapp.com/minister/'+voteID, {
                 method: 'PATCH',
                 headers: {
@@ -24,8 +24,23 @@ $(".voteBtn").click(function (e){
             }).then((res) => res.json()
             ).then((data) =>
                 console.log(data));
-
             
+            //Update HasVoted in database
+            let storage = new Storage();
+            var key = storage.getKey();
+            var userIC = storage.getItem(key.userIC);
+            fetch('https://mstw-hackathon-api.herokuapp.com/user/'+userIC, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    hasVoted: true
+                })
+            }).then((res) => res.json()
+            ).then((data) =>
+                console.log(data));
+
             Swal.fire({
                 icon:"success",
                 title: "Voted success!"
@@ -35,9 +50,9 @@ $(".voteBtn").click(function (e){
 });
 
 //Get Menteri Details from Firebase
-function getDetails() {
+function getDetails(){
     //Preprocess URL
-    var pathname = $(location).attr('pathname').slice(6,12);
+    var pathname = $(location).attr('pathname').slice(6,12)
     pathname = pathname.charAt(0).toUpperCase() + pathname.slice(1);
     console.log(pathname);
     
@@ -70,7 +85,21 @@ function getDetails() {
     });
 }
 
+//Check if user has voted already
+function isUserVoted(){
+    //Get user voted from local storage
+    let storage = new Storage();
+    var key = storage.getKey();
+    var userVoted = storage.getItem(key.hasVoted);
+
+    //Disable buttons accordingly
+    if (userVoted){
+        $(".voteBtn").addClass("disabled");
+    }
+}
+
 //Update DOM after loaded
 $(document).ready(function(){
     getDetails();
+    isUserVoted();
 });
