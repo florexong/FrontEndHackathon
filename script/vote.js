@@ -72,6 +72,7 @@ function getDetails(){
             }
         }).then((res) => res.json()
         ).then((data) => {
+            console.log(data)
             //Menteri A
             $("#voteA").data("name", data[0].name);
             $("#voteA").data("state", data[0].state);
