@@ -77,13 +77,13 @@ async function login(e) {
                     console.log("hello there");
                     saveUser(JSON.stringify(user));
                     if (user.state == "Melaka" || user.state == "Malacca"){
-                        window.location.href = window.location.protocol+"//"+window.location.hostname+":"+window.location.port+"/vote_melaka.html";
+                        window.location.href = "https://florexong.github.io/FrontEndHackathon/vote_melaka.html";
                     }
                     else if (user.state == "Perlis"){
-                        window.location.href = window.location.protocol+"//"+window.location.hostname+":"+window.location.port+"/vote_perlis.html";
+                        window.location.href = "https://florexong.github.io/FrontEndHackathon/vote_perlis.html";
                     }
                     else{
-                        window.location.href = window.location.protocol+"//"+window.location.hostname+":"+window.location.port+"/vote.html";
+                        window.location.href ="https://florexong.github.io/FrontEndHackathon/vote.html";
                     }
                 } else {
                     Swal.fire({
